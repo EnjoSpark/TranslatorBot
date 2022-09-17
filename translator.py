@@ -60,7 +60,7 @@ async def on_raw_reaction_add(payload):
     if not (message and member):
         print('Missing info.')
         return
-    print('Translation triggered.')
+    print(f'Translation triggered for {member.name} ({emoji}).')
     translated = ts.google(message.content, to_language=lang)
     pm = f'"{message.content}"\n{translated} ({emoji})'
     await member.send(pm)
